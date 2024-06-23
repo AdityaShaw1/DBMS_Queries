@@ -1,0 +1,77 @@
+Change I_qty to 75 of I_no 1.
+
+UPDATE ITEM
+SET I_qty = 75
+WHERE I_no = 1;
+
+Change the I_price of 'Nut' to 6.
+
+UPDATE ITEM
+SET I_price = 6
+WHERE I_name = 'Nut';
+
+Increase the Item price by 10%.
+
+UPDATE ITEM
+SET I_price = I_price * 1.1;
+
+Delete all items whose quantity is 500.
+
+DELETE FROM ITEM
+WHERE I_qty = 500;
+
+Delete all items whose prices lie between 0.1 and 1.00.
+
+DELETE FROM ITEM
+WHERE I_price BETWEEN 0.1 AND 1.00;
+
+Add a column “Phone_no number (10)” to CUSTOMER table.
+
+ALTER TABLE CUSTOMER
+ADD Phone_no VARCHAR(10);
+
+Change the size of the newly added column to 15.
+
+ALTER TABLE CUSTOMER
+ALTER COLUMN Phone_no VARCHAR(15);
+
+Change the name of Phone_no attribute to Ph_number.
+
+ALTER TABLE CUSTOMER
+CHANGE COLUMN Phone_no Ph_number VARCHAR(15);
+
+Remove the Ph_number attribute from the table.
+
+ALTER TABLE CUSTOMER
+DROP COLUMN Ph_number;
+
+Change the name of CUSTOMER to CUSTOMER_YourName.
+
+ALTER TABLE CUSTOMER
+RENAME TO CUSTOMER_YourName;
+
+Change the name of ITEM to ITEM_YourName.
+
+ALTER TABLE ITEM
+RENAME TO ITEM_YourName;
+
+Display all the constraints of ITEM_YourName table.
+
+SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE
+FROM USER_CONSTRAINTS
+WHERE TABLE_NAME = 'ITEM_YourName';
+
+Truncate all data from CUSTOMER_YourName.
+
+TRUNCATE TABLE CUSTOMER_YourName;
+
+Display all data from CUSTOMER_YourName.
+
+SELECT *
+FROM CUSTOMER_YourName;
+
+Remove the tables CUSTOMER_YourName, ITEM_YourName, DUMMY_ITEM from the database.
+
+DROP TABLE CUSTOMER_YourName;
+DROP TABLE ITEM_YourName;
+DROP TABLE DUMMY_ITEM;
