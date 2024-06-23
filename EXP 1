@@ -1,0 +1,65 @@
+1. Create a database named as aecitdb sql
+
+CREATE DATABASE aecitdb;
+
+2. Create another database named as tempdb sql
+
+CREATE DATABASE tempdb;
+
+3. Delete the database tempdb sql
+
+DROP DATABASE tempdb;
+
+4. Enter into the database named as aecitdb sql
+
+USE aecitdb;
+
+5. Create a table named as TempPerson with the following schema sql
+
+CREATE TABLE TempPerson (
+    Pid INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    City VARCHAR(50),
+    DOB DATE,
+    Salary DECIMAL(10, 2)
+);
+
+6. Create a table named as Person with the following schema sql
+
+CREATE TABLE Person (
+    Pid INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    City VARCHAR(50),
+    DOB DATE,
+    Salary DECIMAL(10, 2)
+);
+
+7. Insert the following data in the Person table sql
+
+INSERT INTO Person (Pid, FirstName, LastName, City, DOB, Salary) VALUES
+(101, 'Amal', 'Biswas', 'Asansol', '1972-08-12', 90000.89),
+(102, 'Tamal', 'Choudhury', 'Kolkata', '1992-02-15', 40000.58),
+(103, 'Rita', 'Sen', 'Durgapur', '1986-08-12', 60000.36);
+8. Show all the data present in the table Person
+sql
+
+SELECT * FROM Person;
+
+9. Create a same table named as DummyPerson from the existing table named as Person sql
+
+CREATE TABLE DummyPerson AS
+SELECT * FROM Person;
+
+10. Show all the data present in the recently created table, DummyPerson sql
+
+SELECT * FROM DummyPerson;
+
+11. Show all the tables present in the currently operating database sql
+
+SHOW TABLES;
+
+12. Delete the table DummyPerson sql
+
+DROP TABLE DummyPerson;
