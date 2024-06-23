@@ -1,0 +1,67 @@
+1. Create a table named as ITEM with the following specifications sql
+
+CREATE TABLE ITEM (
+    I_no INT PRIMARY KEY CHECK (I_no BETWEEN 1 AND 1000),
+    I_name VARCHAR(20) NOT NULL CHECK (I_name = UPPER(I_name)),
+    I_price DECIMAL(5, 2) CHECK (I_price BETWEEN 1.00 AND 25.95),
+    I_qty INT CHECK (I_qty >= 1)
+);
+2. Create a table named as DUMMY_ITEM_1 with the same specifications as of ITEM
+
+CREATE TABLE DUMMY_ITEM_1 (
+    I_no INT PRIMARY KEY CHECK (I_no BETWEEN 1 AND 1000),
+    I_name VARCHAR(20) NOT NULL CHECK (I_name = UPPER(I_name)),
+    I_price DECIMAL(5, 2) CHECK (I_price BETWEEN 1.00 AND 25.95),
+    I_qty INT CHECK (I_qty >= 1)
+);
+
+3. Create a table named as DUMMY_ITEM_2 with the same specifications as of ITEM but attributes names will be as follows:
+
+CREATE TABLE DUMMY_ITEM_2 (
+    Item_no INT PRIMARY KEY CHECK (Item_no BETWEEN 1 AND 1000),
+    Item_name VARCHAR(20) NOT NULL CHECK (Item_name = UPPER(Item_name)),
+    Item_price DECIMAL(5, 2) CHECK (Item_price BETWEEN 1.00 AND 25.95),
+    Item_quantity INT CHECK (Item_quantity >= 1)
+);
+
+4. Drop the Primary key from ITEM table
+
+ALTER TABLE ITEM DROP CONSTRAINT ITEM_pkey;
+
+5. Add the Primary Key in the ITEM table
+
+ALTER TABLE ITEM ADD CONSTRAINT ITEM_pkey PRIMARY KEY (I_no);
+
+6. Create a table named as CUSTOMER with the following specifications
+
+CREATE TABLE CUSTOMER (
+    Cust_no INT NOT NULL UNIQUE,
+    Cust_name VARCHAR(20) NOT NULL CHECK (Cust_name = UPPER(Cust_name)),
+    State CHAR(2) DEFAULT 'WB' CHECK (State IN ('WB', 'UP', 'AP'))
+);
+
+7. Insert the following data into the ITEM table
+
+INSERT INTO ITEM (I_no, I_name, I_price, I_qty) VALUES
+(1, 'SWORD', 2.25, 50),
+(2, 'NUT', 5.00, 110),
+(3, 'BOLT', 3.99, 75),
+(4, 'HAMMER', 9.99, 125),
+(5, 'WASHER', 1.99, 100),
+(6, 'NAIL', 0.99, 300),
+(7, 'AXE', 3.55, 25),
+(8, 'SCISSOR', 2.19, 15);
+
+8. Insert the following data into the CUSTOMER table
+
+INSERT INTO CUSTOMER (Cust_no, Cust_name, State) VALUES
+(1001, 'PRAKASH', 'UP'),
+(1002, 'MUKESH', 'AP'),
+(1003, 'MURTI', 'UP'),
+(1004, 'RAJAN', 'WB');
+
+9. Using SELECT and INSERT together populate the DUMMY_ITEM_2 table from ITEM table
+
+INSERT INTO DUMMY_ITEM_2 (Item_no, Item_name, Item_price, Item_quantity)
+SELECT I_no, I_name, I_price, I_qty
+FROM ITEM;
