@@ -1,0 +1,51 @@
+1. Display details of all items
+
+SELECT * FROM ITEM;
+
+2. Display details of all customers from ‘UP’
+
+SELECT * FROM CUSTOMER WHERE State = 'UP';
+
+3. Display details of the customer ‘Prakash’
+
+SELECT * FROM CUSTOMER WHERE Cust_name = 'PRAKASH';
+
+4. Display all customers who are either from ‘AP’ or from ‘WB’
+
+SELECT * FROM CUSTOMER WHERE State IN ('AP', 'WB');
+
+5. Display all customers who are not from ‘UP’
+
+SELECT * FROM CUSTOMER WHERE State <> 'UP';
+
+6. Display the details of item ‘Nail’
+
+SELECT * FROM ITEM WHERE I_name = 'NAIL';
+
+7. Find all items whose price lies between 2 and 6
+
+SELECT * FROM ITEM WHERE I_price BETWEEN 2 AND 6;
+
+8. Find all items whose price does not lie between 2 and 6
+
+SELECT * FROM ITEM WHERE I_price NOT BETWEEN 2 AND 6;
+
+9. Find all items whose price is greater than 1.00 but quantity is less than 200
+
+SELECT * FROM ITEM WHERE I_price > 1.00 AND I_qty < 200;
+
+10. Find all items which have ‘o’ in their names
+
+SELECT * FROM ITEM WHERE I_name LIKE '%O%';
+
+11. Find all items which start with ‘A’
+
+SELECT * FROM ITEM WHERE I_name LIKE 'A%';
+
+12. Find all items which end with ‘r’
+
+SELECT * FROM ITEM WHERE I_name LIKE '%R';
+
+13. Sort all customers in descending order of their states
+
+SELECT * FROM CUSTOMER ORDER BY State DESC;
